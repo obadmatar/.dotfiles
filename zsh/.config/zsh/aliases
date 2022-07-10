@@ -1,0 +1,70 @@
+#!/bin/sh
+alias zsh-update-plugins="find "$ZDOTDIR/plugins" -type d -exec test -e '{}/.git' ';' -print0 | xargs -I {} -0 git -C {} pull -q"
+
+# alias grep
+alias ag="alias | grep " # +command
+
+# mkdir: create parent directories
+alias mkdir="mkdir -pv" 
+
+# always print physical working direcotry
+alias pwd='pwd -P'
+
+# history
+alias h="history -10" # last 10 commands
+alias hc="history -c" # clear history
+alias hg="history | grep " # +command
+
+# confirm before overwriting something
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+
+# colorize grep output (good for log files)
+alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
+
+# easier to read disk
+alias df='df -h'     # human-readable sizes
+alias free='free -m' # show sizes in MB
+
+# get top process eating memory
+alias psmem='ps auxf | sort -nr -k 4 | head -5'
+
+# get top process eating cpu ##
+alias pscpu='ps auxf | sort -nr -k 3 | head -5'
+
+# gpg encryption
+alias gpg-check="gpg2 --keyserver-options auto-key-retrieve --verify" # verify signature for isos
+alias gpg-retrieve="gpg2 --keyserver-options auto-key-retrieve --receive-keys" # receive the key of a developer
+
+# git
+alias m="git checkout master"
+alias s="git checkout stable"
+alias gcg="git config --edit --global"
+alias gcl="git config --edit --local"
+alias gcu="git config user.name \"Abdulrahman\" && git config user.email \"abdelrahman.matar@outlook.com\"" # most used user
+
+# list directories
+alias ls='gls --color --group-directories-first'
+alias la='gls --color --group-directories-first -A -h' # "-A -> do not list implied . and .."
+alias ll='gls --color --group-directories-first -A -h -l' # "-l -> list with all information", "-h -> human readable"
+alias l='gls --color --group-directories-first -A -h -G -g' # "-G -> don't print author names",  "-g -> don't print group names"
+
+case "$(uname -s)" in
+
+Darwin)
+	# echo 'Mac OS X'
+	;;
+
+Linux)
+	;;
+
+CYGWIN* | MINGW32* | MSYS* | MINGW*)
+	# echo 'MS Windows'
+	;;
+*)
+	# echo 'Other OS'
+	;;
+esac
