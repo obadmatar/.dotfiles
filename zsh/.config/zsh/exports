@@ -8,7 +8,12 @@ export NVM_DIR="$HOME/.config/nvm"
 export GOPATH=$HOME/.local/go
 export PATH=$GOPATH/bin:$PATH
 
+# Java
+export PATH=/usr/local/opt/openjdk/bin:$PATH
+export CPPFLAGS="-I/usr/local/opt/openjdk/include"
+
 # HomeBrew Configurations
 export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_AUTO_UPDATE_SECS=604800
+
