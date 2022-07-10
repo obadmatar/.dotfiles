@@ -4,6 +4,10 @@
 export NVM_LAZY_LOAD=true
 export NVM_DIR="$HOME/.config/nvm"
 
+# Golang
+export GOPATH=$HOME/.local/go
+export PATH=$GOPATH/bin:$PATH
+
 # HomeBrew Configurations
 export HOMEBREW_NO_EMOJI=1
 export HOMEBREW_NO_ANALYTICS=1
